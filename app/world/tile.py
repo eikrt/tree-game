@@ -14,5 +14,8 @@ class Tile:
             print(Fore.YELLOW + Style.DIM + self.type, end=' ')
         elif self.type == ',':
             print(Fore.GREEN+self.type, end=' ')
+        elif self.type == ':':
+            print(Fore.MAGENTA + Style.BRIGHT + self.type, end = ' ')
         else:
             print(Fore.CYAN + Style.DIM + self.type, end=' ')
+        print(Style.RESET_ALL, end='')

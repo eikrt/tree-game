@@ -14,12 +14,23 @@ def rend(map):
 
 def logic(map):
     ans = input()
-    if ans == 'seed':
-        print(map[0][0])
+    if ans == 'plant':
+        map[14][7].changeTo(',')
 def loop():
     l = 16;
     h = 16;
-    map = [[Tile('\'',l,h)] * l for i in range(h)]
+    map = [[]] 
+    for row in range(l):
+        map.append([])
+        for elem in range(h):
+            map[row].append(Tile('\'', row, elem))
+    for row in map:
+        for elem in row:
+            if elem.x > 13:
+                elem.changeTo(':')
+    
+
+
     while(True):
         rend(map)
         logic(map)
