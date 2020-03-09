@@ -2,7 +2,9 @@ import os
 from colorama import Fore, Back, Style
 def render(map):
         for row in map:
-            for col in row:
-                print(Fore.BLUE + str(col),end=' ')
+            for elem in row:
+                elem.render()
             print(' ')
+
+        print(Style.RESET_ALL)
 
