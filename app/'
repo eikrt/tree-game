@@ -1,5 +1,6 @@
 from app.render import render
 from app.world.tile import Tile
+from app.world.map import Map
 from os import system
 def clear():
     system('clear')
@@ -14,12 +15,19 @@ def rend(map):
 
 def logic(map):
     ans = input()
-    if ans == 'seed':
-        print(map[0][0])
+    if ans == 'plant':
+        map.plant()
+    elif ans == 'grow':
+        map.grow()
+    elif ans == 'branchleft':
+        map.branch('left')
+
 def loop():
     l = 16;
     h = 16;
-    map = [[Tile('\'',l,h)] * l for i in range(h)]
+    map = Map(16,16)
+
+
     while(True):
         rend(map)
         logic(map)
