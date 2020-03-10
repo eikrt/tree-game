@@ -17,13 +17,13 @@ def rend(map):
     render.renderStatus(map)
 def logic(map):
     ans = input()
-    if ans == 'plant':
+    if ans == Command.PLANT.value:
         map.plant()
-    elif ans == 'grow':
+    elif ans == Command.GROW.value:
         map.grow()
-    elif ans == 'branchleft':
+    elif ans == Command.BRANCHLEFT.value:
         map.branch('left')
-    elif ans == 'branchright':
+    elif ans == Command.BRANCHRIGHT.value:
         map.branch('right')
 
 def loop():
@@ -38,4 +38,7 @@ def loop():
 
 
 class Command(Enum):
-    PLANT = 1
+    PLANT = 'plant'
+    GROW = 'grow'
+    BRANCHLEFT = 'branchleft'
+    BRANCHRIGHT = 'branchright'

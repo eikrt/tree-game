@@ -13,4 +13,7 @@ def render(map):
 def renderStatus(map):
     print("Time: day")
     print("Weather: sunny")
-    print("Whispers: " + app.Commands)
+    print("Whispers: ", end='')
+    for command in app.Command:
+        print(command.value, end=', ')
+    print('')
