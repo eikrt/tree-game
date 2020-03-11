@@ -5,19 +5,29 @@ class Tile:
         self.type = type
         self.x = x
         self.y = y
+        self.parent = self
+        self.selected = False
+    def setParent(self, parent):
+        self.parent = parent
+    def setChild(self, child):
+        self.child = child
+
     def changeTo(self, typeTo):
         self.type = typeTo
     def render(self):
+        selectModifier = ''
+        if self.selected == True:
+            selectModifier = Back.WHITE + Style.BRIGHT
         if self.type == '\'':
-            print(Fore.BLUE + Style.BRIGHT + self.type, end=' ')
-        elif self.type == '|' or self.type == '\\' or self.type == '/':
-            print(Fore.YELLOW + Style.DIM + self.type, end=' ')
+            print(selectModifier + Fore.BLUE + Style.BRIGHT + self.type, end=' ')
+        elif self.type == '|' or self.type == '\\' or self.type == '/' or self.type == '-':
+            print(selectModifier + Fore.YELLOW + Style.DIM + self.type, end=' ')
         elif self.type == ',':
-            print(Fore.GREEN+self.type, end=' ')
+            print(selectModifier + Fore.GREEN+self.type, end=' ')
         elif self.type == ':':
-            print(Fore.MAGENTA + Style.BRIGHT + self.type, end = ' ')
+            print(selectModifier + Fore.MAGENTA + Style.BRIGHT + self.type, end = ' ')
         elif self.type == 'o':
-            print(Fore.YELLOW + Style.DIM + self.type, end = ' ')
+            print(selectModifier + Fore.YELLOW + Style.DIM + self.type, end = ' ')
         else:
-            print(Fore.CYAN + Style.DIM + self.type, end=' ')
+            print(selectModifier + Fore.CYAN + Style.DIM + self.type, end=' ')
         print(Style.RESET_ALL, end='')

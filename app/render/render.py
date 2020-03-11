@@ -1,8 +1,8 @@
 import os
 from colorama import Fore, Back, Style
 from app import app
-def render(map):
 
+def render(map):
     for row in map.map:
         for elem in row:
              elem.render()
@@ -11,9 +11,9 @@ def render(map):
         print(' ')
 
 def renderStatus(map):
-    print("Time: day")
-    print("Weather: sunny")
-    print("Whispers: ", end='')
+    print('Year:', map.year)
+    print('Weather:', map.weather)
+    print('Whispers: ', end='')
     for command in app.Command:
         print(command.value, end=', ')
     print('')
