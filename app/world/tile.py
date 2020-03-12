@@ -1,19 +1,21 @@
 from colorama import Fore, Back, Style
 class Tile:
     
-    def __init__(self, type, x, y):
+    def __init__(self, type, desc, x, y):
         self.type = type
         self.x = x
         self.y = y
         self.parent = self
+        self.desc=desc
         self.selected = False
     def setParent(self, parent):
         self.parent = parent
     def setChild(self, child):
         self.child = child
 
-    def changeTo(self, typeTo):
+    def changeTo(self, typeTo, desc):
         self.type = typeTo
+        self.desc = desc
     def render(self):
         selectModifier = ''
         if self.selected == True:
