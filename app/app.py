@@ -17,9 +17,12 @@ def rend(map):
     render.renderStatus(map)
 def logic(map):
     ans = input()
-    map.year+=1
+    if not(ans == Command.MOVEDOWN.value) and not(ans == Command.MOVEUP.value) and not(ans == Command.MOVELEFT.value) and not(ans == Command.MOVERIGHT.value):
+        map.year+=1
+
     if ans == Command.PLANT.value:
         map.plant()
+        map.select(14,7)
     elif ans == Command.GROW.value:
         map.grow()
     elif ans == Command.BRANCHLEFT.value:
@@ -27,13 +30,15 @@ def logic(map):
     elif ans == Command.BRANCHRIGHT.value:
         map.branch('right')
     elif ans == Command.MOVELEFT.value:
-        map.select(map.selectLoc[0], map.selectLoc[1]-1) 
+        map.moveSelect('left') 
     elif ans == Command.MOVERIGHT.value:
-        map.select(map.selectLoc[0], map.selectLoc[1]+1) 
+        map.moveSelect('right') 
     elif ans == Command.MOVEDOWN.value:
-        map.select(map.selectLoc[0]+1, map.selectLoc[1]) 
+        map.moveSelect('down') 
     elif ans == Command.MOVEUP.value:
-        map.select(map.selectLoc[0]-1, map.selectLoc[1]) 
+        map.moveSelect('up')
+    else:
+        map.year-=1
 def loop():
     l = 16;
     h = 16;
