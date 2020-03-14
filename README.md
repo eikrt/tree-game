@@ -1,4 +1,4 @@
-#Tree Game
+# Tree Game
 ## Description
 game where you grow tree
 ## Run instructions
